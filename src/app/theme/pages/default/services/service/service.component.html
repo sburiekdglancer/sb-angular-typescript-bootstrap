@@ -1,0 +1,271 @@
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+      <div class="d-flex align-items-center">
+        <div class="mr-auto">
+          <h3 class="m-subheader__title ">Opportunity</h3>
+        </div>
+        
+        <div>
+            <a class="btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--icon m-btn--air" data-target="#serviceModal" data-toggle="modal" href="#" ng-reflect-href="#">
+              <span>
+                <i class="la la-plus"></i>
+                <span>New Opportunity</span>
+              </span>
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <!-- END: Subheader -->
+    <div class="m-content">
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__body">
+          <ul
+            class="nav nav-tabs m-tabs-line m-tabs-line--success text-center"
+            role="tablist"
+          >
+            <li class="nav-item m-tabs__item">
+              <a
+                class="nav-link m-tabs__link active"
+                data-toggle="tab"
+                href="#m_tabs_2_1"
+                role="tab"
+              >
+                <h5>New</h5>
+                <small>32 worth $143,322.75</small>
+              </a>
+            </li>
+
+            <li class="nav-item m-tabs__item">
+              <a
+                class="nav-link m-tabs__link"
+                data-toggle="tab"
+                href="#m_tabs_2_2"
+                role="tab"
+              >
+                <h5>Estimate</h5>
+                <small>32 worth $143,322.75</small>
+              </a>
+            </li>
+            <li class="nav-item m-tabs__item">
+              <a
+                class="nav-link m-tabs__link"
+                data-toggle="tab"
+                href="#m_tabs_2_3"
+                role="tab"
+              >
+                <h5>Estimate Sent</h5>
+                <small>32 worth $143,322.75</small>
+              </a>
+            </li>
+            <li class="nav-item m-tabs__item">
+              <a
+                class="nav-link m-tabs__link"
+                data-toggle="tab"
+                href="#m_tabs_2_4"
+                role="tab"
+              >
+                <h5>Estimate Viewed</h5>
+                <small>32 worth $143,322.75</small>
+              </a>
+            </li>
+            <li class="nav-item m-tabs__item">
+              <a
+                class="nav-link m-tabs__link"
+                data-toggle="tab"
+                href="#m_tabs_2_5"
+                role="tab"
+              >
+                <h5>Lost</h5>
+                <small>32 worth $143,322.75</small>
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="m_tabs_2_1" role="tabpanel">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Opportunity</th>
+                    <th>Contact</th>
+                    <th>Assigned to</th>
+                    <th>Date</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of allOpprtunityData">
+                    <th scope="row">9318</th>
+                    <td>
+                      <strong>
+                        <a class="listing-title" (click)="gotoDetail(data.id)"
+                          >{{data.service.name}}</a
+                        >
+                      </strong>
+                      <div class="listing-table-description small">
+                        {{data.description}}
+                      </div>
+                    </td>
+                    <td class="listing-table-address">
+                      
+                      <div class="small">
+                        <div class="listing-customer-name">
+                          <strong>
+                            <a href="javascript:void(0)"
+                              >{{data.contact.name}}</a
+                            >
+                          </strong>
+                        </div>
+                        <address
+                          class="customer-address customer-service-address"
+                        >
+                          <div class="customer-service-address_1">
+                            31 Fawn Lake Road
+                          </div>
+                          <div class="customer-service-address_2">
+                            
+                          </div>
+                          <span class="customer-service-city"
+                            >Hardyston Township </span
+                          ><span class="customer-service-state">NJ </span
+                          ><span class="customer-service-zip_code"
+                            >07460 </span
+                          ><span class="customer-service-country"
+                            >United States</span
+                          >
+                        </address>
+                      </div>
+                      <small class="listing-phone-number">
+                        <span class="text-muted">•</span>
+                        <a href="{{data.contact.email}}"
+                          >{{data.contact.email}}</a
+                        >
+                      </small>
+                    </td>
+                    <td>Unassigned</td>
+                    <td class="listing-table-date">                            
+                      <span class="listing-date small">                              
+                        Sep 12 2019 <br />
+                        4:34 pm
+                      </span>
+                    </td>
+                    <td>${{data.service.price}}</td>
+                  </tr>
+                                 </tbody>
+              </table>
+            </div>
+            <div class="tab-pane" id="m_tabs_2_2" role="tabpanel">
+              22
+            </div>
+            <div class="tab-pane" id="m_tabs_2_3" role="tabpanel">
+              23
+            </div>
+            <div class="tab-pane" id="m_tabs_2_4" role="tabpanel">
+              24
+            </div>
+            <div class="tab-pane" id="m_tabs_2_5" role="tabpanel">
+              25
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--end::Portlet-->
+  </div>
+
+       <!--begin::Modal-->
+       <div
+       class="modal"
+       id="serviceModal"
+       tabindex="-1"
+       role="dialog"
+     >
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">
+               Add Lead
+             </h5>
+             <button
+               type="button"
+               class="close"
+               data-dismiss="modal"
+               aria-label="Close"
+             >
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <form class="m-form m-form--label-align-left- m-form--state-" id="create_opportunity_form" name="create_opportunity_form" [formGroup]="createOpportunityForm" (ngSubmit)="createOpportunity()">
+
+           <div class="modal-body">
+
+                  <div>
+                  <div class="m-separator m-separator--dashed m-separator--sm"></div>
+                 <input formControlName="contact_id" class="form-control form-control-sm" type="text" id="contact_id" name="contact_id" value="" hidden>
+                  <input formControlName="service_id" class="form-control form-control-sm" type="text" id="service_id" name="service_id" value="" hidden>
+              <div class="form-group">
+                <label for="primary_phone">Service</label>
+                <input formControlName="service" class="form-control form-control-sm" type="text" id="service" [(ngModel)]="ServiceText" (input)="ServiceSearch($event.target.value)" (focus)="serviceSuggestion()"
+                  name="service" value=""
+                   />
+                <div
+                  *ngIf="submitted || createOpportunityForm.get('service').invalid && createOpportunityForm.get('service').touched">
+                  <span class="text-danger form-control-feedback"
+                    *ngIf="createOpportunityForm.get('service').errors?.required">This field is required.</span>
+                </div>
+                <div class="deal_title_list" *ngIf="serviceSuggestionList">
+                    <ul>
+                      <li *ngFor = "let service of serviceData" (click)="dealInfoSetter($event,service)"> {{service.name}} </li>
+                    </ul>
+                  </div>
+                  <!-- <a class="btn" (click)="modalClick()" href="#" ng-reflect-href="#">
+                      <span>
+                        <i class="la la-plus"></i>
+                        <span>New Contact</span>
+                      </span>
+                    </a> -->
+              </div>
+              <app-modal-service></app-modal-service>
+              
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" class="form-control ng-pristine ng-valid ng-touched" formControlName="description" ng-reflect-name="scope"></textarea>
+                </div>
+
+                 <div class="form-group">
+                    <input formControlName="contact_id" class="form-control form-control-sm" type="text" id="contact_id" name="contact_id" value="" hidden>
+                    <input formControlName="service_id" class="form-control form-control-sm" type="text" id="service_id" name="service_id" value="" hidden>
+  
+                    <label for="contact_name">Contact</label>
+                    <input formControlName="contact_name" class="form-control form-control-sm" type="text" id="contact_name" name="contact_name" value="" [(ngModel)]="text" (input)="search($event.target.value)" (focus)="contactSuggestion()"
+                       />
+                    <div
+                      *ngIf="submitted || createOpportunityForm.get('contact_name').invalid && createOpportunityForm.get('contact_name').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createOpportunityForm.get('contact_name').errors?.required">This field is required.</span>
+                    </div>
+                    <div class="contact_name_list" *ngIf="contactSuggestionList">
+                      <ul>
+                        <li *ngFor = "let contact of contactData" (click)="contactInfoSetter($event,contact)"> {{contact.name}} </li>
+                      </ul>
+                      
+                    </div>
+                  </div>
+                  <app-modal></app-modal>
+              </div>
+           </div>
+
+
+           <div class="modal-footer">
+             <button type="submit" class="btn btn-primary">
+               Save changes
+             </button>
+           </div>
+          </form>
+         </div>
+       </div>
+     </div>
+
+     <!--end::Modal-->

@@ -1,0 +1,339 @@
+<div class="m-content">
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+              <div class="m-portlet__body">
+                <div class="pull-right">
+                  <div class="text-right listing-summary-actions">
+                    <div class="btn-group">
+                      <a
+                        class="btn btn-sm btn-success"
+                        href="/ercenvironmental/opportunities/9318/estimate_confirm"
+                        >View Estimate</a
+                      >
+                      <a
+                        class="btn btn-sm btn-success mark_won"
+                        data-confirm="mark this opportunity as won"
+                        href="/ercenvironmental/opportunities/9318/mark_as_won"
+                        >Mark Won</a
+                      >
+                      <a
+                        class="btn btn-sm btn-success mark_lost"
+                        data-confirm="mark this opportunity as lost"
+                        href="/ercenvironmental/opportunities/9318/mark_as_lost"
+                        >Mark Lost</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <h3>
+                  {{OpportunityData.data[0].service_name}}
+                  <small class="no-break" id="listing-job-number">
+                    #9318
+                  </small>
+                </h3>
+                <div class="listing-summary-info">
+                  <div class="listing-summary-info-section">
+                    Opportunity for
+                    <a href="/">{{OpportunityData.data[0].contact_name}}</a>
+                    <address class="customer-address customer-service-address">
+                      <div class="customer-service-address_1">
+                        31 Fawn Lake Road
+                      </div>
+                      <div class="customer-service-address_2"></div>
+                      <span class="customer-service-city">
+                        Hardyston Township
+                      </span>
+                      <span class="customer-service-state">NJ </span>
+                      <span class="customer-service-zip_code">07460 </span>
+                      <span class="customer-service-country"
+                        >United States
+                      </span>
+                    </address>
+                    <span>
+                      <a id="toggle-map" href="#">Map</a>
+                      <span class="text-muted">|</span>
+                      <a
+                        target="_blank"
+                        href="https://www.google.com/maps/place/31+Fawn+Lake+Road%2C+Hardyston+Township%2C+NJ%2C+07460"
+                      >
+                        Directions
+                      </a>
+                    </span>
+                    <div>
+                      <a
+                        title="{{OpportunityData.data.contact_email}}"
+                        href="mailto:{{OpportunityData.data[0].contact_email}}"
+                      >
+                      {{OpportunityData.data[0].contact_email}}
+                      </a>
+                    </div>
+                  </div>
+                  <div id="m_accordion_7">
+                    <div class="my-2">
+                      <button
+                        class="btn btn-secondary btn-sm dropdown-toggle"
+                        type="button"
+                        role="tab"
+                        id="m_accordion_7_item_1_head"
+                        data-toggle="collapse"
+                        href="#m_accordion_7_item_1_body"
+                        aria-expanded="false"
+                      >
+                        Scope of work
+                      </button>
+                      <div
+                        id="m_accordion_7_item_1_body"
+                        role="tabpanel"
+                        aria-labelledby="m_accordion_7_item_1_head"
+                        data-parent="#m_accordion_7"
+                        class="m-accordion__item-body collapse"
+                      >
+                        <textarea class="form-control mt-2"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="my-2">
+                      <span class="m-badge m-badge--primary m-badge--wide">
+                        Estimate Viewed
+                      </span>
+                      <br/>
+                      <button
+                        class="btn btn-link p-0 my-2"
+                        type="button"
+                        role="tab"
+                        id="m_accordion_7_item_2_head"
+                        data-toggle="collapse"
+                        href="#m_accordion_7_item_2_body"
+                        aria-expanded="false"
+                      >
+                        View Additional Information
+                      </button>
+                      <div
+                        id="m_accordion_7_item_2_body"
+                        role="tabpanel"
+                        aria-labelledby="m_accordion_7_item_2_head"
+                        data-parent="#m_accordion_7"
+                        class="m-accordion__item-body collapse"
+                      >
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <strong>
+                                  First Name
+                                </strong>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <br />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="m-portlet__foot">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 m--valign-middle">
+                    <button
+                      type="submit"
+                      class="btn btn-outline-primary m-btn m-btn--custom btn-sm"
+                    >
+                      Add tags
+                    </button>
+                  </div>
+                  <div class="col-lg-6 m--align-right">
+                    
+                    <div class="btn-group">
+                      <button
+                        class="btn btn-outline-primary m-btn m-btn--custom btn-sm dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Add
+                      </button>
+                      <div
+                        class="dropdown-menu dropdown-menu-right"
+                        x-placement="bottom-start"
+                      >
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#"
+                          >Something else here</a
+                        >
+                      </div>
+                    </div>
+                    <div class="btn-group">
+                      <button
+                        class="btn btn-outline-primary m-btn m-btn--custom btn-sm dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        View
+                      </button>
+                      <div
+                        class="dropdown-menu dropdown-menu-right"
+                        x-placement="bottom-start"
+                      >
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#"
+                          >Something else here</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary m-btn m-btn--custom btn-sm"
+                      >
+                        Edit Opportunity
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary m-btn m-btn--custom btn-sm dropdown-toggle dropdown-toggle-split"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <div
+                        class="dropdown-menu dropdown-menu-right"
+                        x-placement="bottom-start"
+                        style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(155px, 40px, 0px);"
+                      >
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#"
+                          >Something else here</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Portlet-->
+
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+              <div class="m-portlet__body">
+                <ul
+                  class="nav nav-tabs  m-tabs-line m-tabs-line--success"
+                  role="tablist"
+                >
+                  <li class="nav-item m-tabs__item">
+                    <a
+                      class="nav-link m-tabs__link active"
+                      data-toggle="tab"
+                      href="#m_tabs_2_1"
+                      role="tab"
+                      >Opportunity Details</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="m_tabs_2_1" role="tabpanel">
+                    <!--begin::Portlet-->
+                    <div
+                      class="m-portlet m-portlet--bordered m-portlet--rounded m-portlet--unair"
+                    >
+                      <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                          <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                              Schedule
+                            </h3>
+                          </div>
+                        </div>
+                        <div class="m-portlet__head-tools">
+                          <ul class="m-portlet__nav">
+                            <li class="m-portlet__nav-item">
+                              <a
+                                href="#"
+                                class="m-portlet__nav-link btn btn-outline-primary btn-sm"
+                              >
+                                Add reminder
+                              </a>
+                            </li>
+                            <li class="m-portlet__nav-item">
+                              <a
+                                href="#"
+                                class="m-portlet__nav-link btn btn-outline-primary btn-sm"
+                              >
+                                Schedule Estimate
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="m-portlet__body p-0">
+                        <table class="table m-0">
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Event</th>
+                              <th>Assigned to</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td colspan="3">
+                                <div class="p-3 text-center">No events</div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--end::Portlet-->
+                    <!--begin::Portlet-->
+                    <div
+                      class="m-portlet m-portlet--bordered m-portlet--rounded m-portlet--unair"
+                    >
+                      <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                          <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                              Charges
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="m-portlet__body p-0">
+                        <table class="table m-0">
+                          <thead>
+                            <tr>
+                              <th>Item</th>
+                              <th>Description</th>
+                              <th>Type</th>
+                              <th>Price</th>
+                              <th>Tax</th>
+                              <th>Qty</th>
+                              <th>Total</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td colspan="7">
+                                <div class="p-3 text-center">No events</div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--end::Portlet-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end::Portlet-->
+          </div>

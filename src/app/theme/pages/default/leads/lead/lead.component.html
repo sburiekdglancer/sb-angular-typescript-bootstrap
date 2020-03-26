@@ -1,0 +1,280 @@
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h3 class="m-subheader__title ">Deals</h3>
+      </div>
+      <div>
+        <a
+          href="#"
+          class="btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--icon m-btn--air"
+          data-toggle="modal"
+          data-target="#m_modal_1"
+        >
+          <span>
+            <i class="la la-plus"></i>
+            <span>New Lead</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-content">
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__body p-0">
+          <table class="table table-items table-block">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Lead title</th>
+                <th>Budget</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of allLeadData; let i= index;">
+                <td>{{i+1}}</td>
+                <td>
+                  <div class="m--font-bolder">{{data.deal_title}}</div>
+                  <span>Make Metronic Great Again.Lorem Ipsum Amet</span>
+                </td>
+
+                <td>${{data.deal_value}}</td>
+                <td>admin</td>
+                <td>
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary"
+                    >
+                      Completed
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-split"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <span class="sr-only">Completed</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </div>
+                  </div>
+                </td>
+                <td nowrap="">
+                  <span class="dropdown">
+                    <a
+                      href="#"
+                      class="btn m-btn m-btn--hover-brand m-btn--icon m-btn--icon-only m-btn--pill"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <i class="la la-ellipsis-h"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">
+                        <i class="la la-edit"></i> Edit Details
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="la la-trash"></i> Delete
+                      </a>
+                    </div>
+                  </span>
+                </td>
+              </tr>
+                 </tbody>
+          </table>
+        </div>
+      </div>
+
+       <!--begin::Modal-->
+       <div
+       class="modal fade"
+       id="m_modal_1"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="exampleModalLabel"
+       aria-hidden="true"
+     >
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">
+               Add Lead
+             </h5>
+             <button
+               type="button"
+               class="close"
+               data-dismiss="modal"
+               aria-label="Close"
+             >
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <form class="m-form m-form--label-align-left- m-form--state-" id="create_contact_form" name="create_contact_form" [formGroup]="createLeadForm" (ngSubmit)="createLead()">
+
+           <div class="modal-body">
+ 
+
+                  <div>
+                  <div class="m-separator m-separator--dashed m-separator--sm"></div>
+                  <!-- <div class="m-form__heading">
+                <h3 class="m-form__heading-title"> Contact Information</h3>
+              </div> -->
+               
+              <div class="form-group">
+                  <input formControlName="contact_id" class="form-control form-control-sm" type="text" id="contact_id" name="contact_id" value="" hidden>
+                  <input formControlName="service_id" class="form-control form-control-sm" type="text" id="service_id" name="service_id" value="" hidden>
+
+                  <label for="contact_person_name">Contact person name </label>
+                  <input formControlName="contact_person_name" class="form-control form-control-sm" type="text" id="contact_person_name" name="contact_person_name" value="" [(ngModel)]="text" (input)="search($event.target.value)" (focus)="contactSuggestion()"
+                    [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('contact_person_name').invalid && createLeadForm.get('contact_person_name').touched }" />
+                  <div
+                    *ngIf="submitted || createLeadForm.get('contact_person_name').invalid && createLeadForm.get('contact_person_name').touched">
+                    <span class="text-danger form-control-feedback"
+                      *ngIf="createLeadForm.get('contact_person_name').errors?.required">This field is required.</span>
+                  </div>
+                  <div class="contact_name_list" *ngIf="contactSuggestionList">
+                    <ul>
+                      <li *ngFor = "let contact of contactData" (click)="contactInfoSetter($event,contact)"> {{contact.name}} </li>
+                    </ul>
+                    
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="organization_name">Organization name </label>
+                  <input formControlName="organization_name" class="form-control form-control-sm" type="text" id="organization_name" name="organization_name" value=""
+                    [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('organization_name').invalid && createLeadForm.get('organization_name').touched }" />
+                  <div
+                    *ngIf="submitted || createLeadForm.get('organization_name').invalid && createLeadForm.get('organization_name').touched">
+                    <span class="text-danger form-control-feedback"
+                      *ngIf="createLeadForm.get('organization_name').errors?.required">This field is required.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="primary_phone">Deal title</label>
+                  <input formControlName="deal_title" class="form-control form-control-sm" type="text" id="deal_title" [(ngModel)]="ServiceText" (input)="ServiceSearch($event.target.value)" (focus)="serviceSuggestion()"
+                    name="deal_title" value=""
+                    [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('deal_title').invalid && createLeadForm.get('deal_title').touched }" />
+                  <div
+                    *ngIf="submitted || createLeadForm.get('deal_title').invalid && createLeadForm.get('deal_title').touched">
+                    <span class="text-danger form-control-feedback"
+                      *ngIf="createLeadForm.get('deal_title').errors?.required">This field is required.</span>
+                  </div>
+                  <div class="deal_title_list" *ngIf="serviceSuggestionList">
+                      <ul>
+                        <li *ngFor = "let service of serviceData" (click)="dealInfoSetter($event,service)"> {{service.name}} </li>
+                      </ul>
+                      
+                    </div>
+                </div>
+               
+                <div class="row">
+                  <div class="col">
+                      <div class="form-group">
+                          <label for="deal_value">Deal value</label>
+                          <input formControlName="deal_value" class="form-control form-control-sm" type="text" id="deal_value"
+                            name="deal_value" value="" />
+                        </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                        <label for="">&nbsp;</label>
+                      <select class="form-control form-control-sm" formControlName="currency">
+                          <option value="US Dollar" selected>US Dollar</option>
+                        </select>
+                      </div>
+                  </div>
+                </div>
+               
+                <div class="form-group">
+                  <label for="pipeline">Pipeline</label>
+
+                  <select class="form-control" formControlName="pipeline" value="UAE">
+                      <option value="UAE" selected>UAE</option>
+                    </select>
+                  <!-- <input formControlName="mobile" class="form-control form-control-sm" type="text" id="pipeline" name="Pipeline" value=""
+                    [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('pipeline').invalid && createLeadForm.get('pipeline').touched }" />
+                  <div
+                    *ngIf="submitted || createLeadForm.get('pipeline').invalid && createLeadForm.get('pipeline').touched">
+                    <span class="text-danger form-control-feedback"
+                      *ngIf="createLeadForm.get('pipeline').errors?.required">This field is required.</span>
+                  </div> -->
+                </div>
+
+
+                <div class="form-group">
+                    <label for="site_address">Site Address</label>
+                    <input formControlName="site_address" class="form-control form-control-sm" type="text" id="mobile" name="mobile" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('site_address').invalid && createLeadForm.get('site_address').touched }" />
+                    <div
+                      *ngIf="submitted || createLeadForm.get('site_address').invalid && createLeadForm.get('site_address').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createLeadForm.get('site_address').errors?.required">This field is required.</span>
+                    </div>
+                  </div>
+
+                <div class="form-group">
+                  <label for="job_description">Job description</label>
+                  <textarea formControlName="job_description" class="form-control form-control-sm" type="text" id="job_description" name="job_description" value="" ></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input formControlName="phone" class="form-control form-control-sm" type="text" id="phone" name="phone" value=""
+                    [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('phone').invalid && createLeadForm.get('phone').touched }" />
+                  <div
+                    *ngIf="submitted || createLeadForm.get('phone').invalid && createLeadForm.get('phone').touched">
+                    <span class="text-danger form-control-feedback"
+                      *ngIf="createLeadForm.get('phone').errors?.required">This field is required.</span>
+                  </div>
+
+
+                  
+                </div>
+                
+                <div class="form-group">
+                    <label for="fax">Fax</label>
+                    <input formControlName="fax" class="form-control form-control-sm" type="text" id="fax" name="fax" value="" />
+                  </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input formControlName="email" class="form-control form-control-sm" type="email" id="email" name="email" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('email').invalid && createLeadForm.get('email').touched }" />
+                    <div
+                      *ngIf="submitted || createLeadForm.get('email').invalid && createLeadForm.get('email').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createLeadForm.get('email').errors?.required">This field is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="address">Address</label>
+                      <input formControlName="address" class="form-control form-control-sm" type="text" id="address" name="address" value=""
+                        [ngClass]="{ 'is-invalid': submitted && createLeadForm.get('address').invalid && createLeadForm.get('address').touched }" />
+                      <div
+                        *ngIf="submitted || createLeadForm.get('address').invalid && createLeadForm.get('address').touched">
+                        <span class="text-danger form-control-feedback"
+                          *ngIf="createLeadForm.get('address').errors?.required">This field is required.</span>
+                      </div>
+                    </div>
+
+           </div>
+           <div class="modal-footer">
+             <button type="submit" class="btn btn-primary">
+               Save changes
+             </button>
+           </div>
+          </form>
+         </div>
+       </div>
+     </div>
+
+     <!--end::Modal-->

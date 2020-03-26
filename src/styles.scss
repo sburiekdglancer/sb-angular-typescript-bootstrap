@@ -1,0 +1,123 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.ngx-pagination li {
+    position: relative;
+    display: inline-block !important;
+    padding: 0.5rem 0.75rem !important;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #5867dd !important;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    margin-right: 0 !important;
+}
+.ngx-pagination a, .ngx-pagination button {
+    padding: 0 !important;
+}
+.ngx-pagination li span {
+    text-indent: -9999px;
+}
+
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
+    display: inline-block;
+    margin-left:0 !important;
+    content: "\f112"  !important;
+    font: normal normal normal 13px LineAwesome;
+}
+.ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+    display: inline-block;
+    margin-right:0 !important;
+    content: "\f111"  !important;
+    font: normal normal normal 13px LineAwesome;
+}
+.ngx-pagination .current {
+    padding: 0.5rem 0.75rem !important;
+    background: #5867dd !important;
+    border: 1px solid #5867dd;
+    margin-left: -1px;
+    line-height: 1.25;
+    position: relative;
+    display: inline-block;
+    color:#fff;
+}
+.ngx-pagination .current span {
+    color: #fff;
+    text-indent: 0;
+}
+.ngx-pagination .small-screen {
+    display: none !important;
+}
+.ngx-pagination li:first-child {
+    margin-left: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.ngx-pagination li:last-child {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+li.page-item a.page-link{
+    cursor: pointer;
+}
+li.active a.page-link{
+    cursor: unset;
+}
+.contact_name{
+    cursor: pointer;
+    color : #5867dd !important;
+}
+.listing-title{
+    color: #5867dd !important;
+    cursor: pointer;
+}
+.relative, .popup{
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3)
+}
+.relative .loader, .popup .box {
+position: absolute;
+z-index: 99999;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+.deal_title_list {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-top: 20px;
+}
+.deal_title_list ul {
+  list-style: none;
+  max-height: 300px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+.deal_title_list ul li {
+  margin: 5px 0;
+  cursor: pointer;
+}
+.contact_name_list {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-top: 20px;
+}
+.contact_name_list ul {
+  list-style: none;
+  max-height: 300px;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+.contact_name_list ul li {
+  margin: 5px 0;
+  cursor: pointer;
+}

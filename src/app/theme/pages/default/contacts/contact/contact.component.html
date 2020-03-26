@@ -1,0 +1,592 @@
+<div class="m-subheader">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Contacts
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+          <!-- <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#m_modal_1">
+            Add new
+          </button> -->
+          <button data-toggle="modal" data-target="#create_contact" type="button"
+          class="btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--icon m-btn--air">
+          <span>
+            <i class="la la-plus"></i>
+            <span>New Contact</span>
+          </span>
+        </button>
+        </div>
+    </div>
+</div>
+
+<!-- END: Subheader -->
+<div class="m-content">
+    <!--begin::Portlet-->
+    <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <ul class="pagination mb-0">
+                    <li class=" page-item" (click)="allListButton()" [ngClass]="(activeClass == 'all') ? 'active' : ''">
+                      <a class="page-link">All</a>
+                    </li>
+                    <li *ngFor="let alphabates of alpha" [value]="alphabates" class="page-item"
+                      (click)="sorting(alphabates)" [ngClass]="(activeClass == alphabates) ? 'active' : '' "><a
+                        class="page-link">{{alphabates | uppercase}}</a></li>
+                  </ul>
+              <!-- <ul class="pagination mb-0">
+                <li class=" page-item active">
+                  <a href="#" class="page-link">All</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">A</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">B</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">C</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">D</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">D</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">E</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">F</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">G</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">H</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">I</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">J</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">K</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">L</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">M</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">N</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">D</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">P</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">Q</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">R</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">S</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">T</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">U</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">V</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">W</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">X</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">Y</a>
+                </li>
+                <li class=" page-item ">
+                  <a href="#" class="page-link">Z</a>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="m-portlet__body p-0">
+            <table class="table table-items table-block">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Service Address</th>
+                  <th>Phone/Email</th>
+                  <th>Last Completed Service</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="contact listing"
+                  *ngFor="let contact of allContacts | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <td class="parent-name">
+                    <i class="fa fa-fw fa-user text-muted"></i>
+                    <a class="contact_name" (click)="gotoDetail(contact.id)">{{ contact.name}}</a>
+                    <div class="small text-muted">
+                      Service location of
+                      <a href="/">AT Brokers LLC</a>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="contact-address">
+                      <address class="customer-address customer-service-address">
+                        <div class="customer-service-address_1">
+                          {{contact.service_address}}
+                        </div>
+                        <div class="customer-service-address_2"></div>
+                        <span class="customer-service-city">Freehold </span><span class="customer-service-state">NJ
+                        </span><span class="customer-service-zip_code">07728 </span><span
+                          class="customer-service-country">United States</span>
+                      </address>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>
+                      {{contact.name}}
+                    </strong>
+                    <br />
+                    <div>
+                      <a href="tel:{{contact.mobile}}">{{contact.mobile}}</a>
+                    </div>
+                    <div>
+                      <a href="mailto:{{contact.email}}">{{contact.email}}</a>
+                    </div>
+                  </td>
+                  <td>
+                    <a href="/">Tank Removal </a>
+                    <span class="text-muted">#6985</span><br />
+                    <small>Completed on May 9 2019</small>
+                  </td>
+                </tr>
+                <tr *ngIf="(allContacts).length === 0">
+                  <div class="p-2 text-center">No result found</div>
+           </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="m-portlet__foot">
+              <pagination-controls (pageChange)="p = $event" class="pagination mb-0" previousLabel="" nextLabel="">
+              </pagination-controls>
+            </div>
+
+
+
+
+        <!-- <div class="m-portlet__body p-0">
+          <table class="table table-items table-block">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Service Address</th>
+                <th>Phone/Email</th>
+                <th>Last Completed Service</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="contact listing">
+                <td class="parent-name">
+                  <i class="fa fa-fw fa-user text-muted"></i>
+                  <a href="/">1002 State Route 33</a>
+                  <div class="small text-muted">
+                    Service location of
+                    <a href="/">AT Brokers LLC</a>
+                  </div>
+                </td>
+                <td>
+                  <span class="contact-address">
+                    <address
+                      class="customer-address customer-service-address"
+                    >
+                      <div class="customer-service-address_1">
+                        1002 New Jersey 33
+                      </div>
+                      <div class="customer-service-address_2"></div>
+                      <span class="customer-service-city">Freehold </span
+                      ><span class="customer-service-state">NJ </span
+                      ><span class="customer-service-zip_code"
+                        >07728 </span
+                      ><span class="customer-service-country"
+                        >United States</span
+                      >
+                    </address>
+                  </span>
+                </td>
+                <td>
+                  <strong>
+                    Maria Carmina Salud
+                  </strong>
+                  <br />
+                  <div>
+                    <a href="tel: 800-484-0038">800-484-0038</a>
+                  </div>
+                  <div>
+                    <a href="mailto:robert@atbnj.com">robert@atbnj.com</a>
+                  </div>
+                </td>
+                <td>
+                  <a href="/">Tank Removal </a>
+                  <span class="text-muted">#6985</span><br />
+                  <small>Completed on May 9 2019</small>
+                </td>
+              </tr>
+              <tr class="contact listing">
+                      <td class="parent-name">
+                        <i class="fa fa-fw fa-user text-muted"></i>
+                        <a href="/">1002 State Route 33</a>
+                        <div class="small text-muted">
+                          Service location of
+                          <a href="/">AT Brokers LLC</a>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="contact-address">
+                          <address
+                            class="customer-address customer-service-address"
+                          >
+                            <div class="customer-service-address_1">
+                              1002 New Jersey 33
+                            </div>
+                            <div class="customer-service-address_2"></div>
+                            <span class="customer-service-city">Freehold </span
+                            ><span class="customer-service-state">NJ </span
+                            ><span class="customer-service-zip_code"
+                              >07728 </span
+                            ><span class="customer-service-country"
+                              >United States</span
+                            >
+                          </address>
+                        </span>
+                      </td>
+                      <td>
+                        <strong>
+                          Maria Carmina Salud
+                        </strong>
+                        <br />
+                        <div>
+                          <a href="tel: 800-484-0038">800-484-0038</a>
+                        </div>
+                        <div>
+                          <a href="mailto:robert@atbnj.com">robert@atbnj.com</a>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="/">Tank Removal </a>
+                        <span class="text-muted">#6985</span><br />
+                        <small>Completed on May 9 2019</small>
+                      </td>
+                    </tr>
+            </tbody>
+          </table>
+        </div> -->
+        <!-- <div class="m-portlet__foot">
+          <ul class="pagination mb-0">
+            <li
+              class=" page-item previous disabled"
+              id="m_table_1_previous"
+            >
+              <a href="#" class="page-link">
+                <i class="la la-angle-left"></i>
+              </a>
+            </li>
+            <li class=" page-item active">
+              <a href="#" class="page-link">1</a>
+            </li>
+            <li class=" page-item ">
+              <a href="#" class="page-link">2</a>
+            </li>
+            <li class=" page-item ">
+              <a href="#" class="page-link">3</a>
+            </li>
+            <li class=" page-item ">
+              <a href="#" class="page-link">4</a>
+            </li>
+            <li class=" page-item ">
+              <a href="#" class="page-link">5</a>
+            </li>
+            <li class=" page-item next" id="m_table_1_next">
+              <a href="#" class="page-link"
+                ><i class="la la-angle-right"></i
+              ></a>
+            </li>
+          </ul>
+        </div> -->
+        <!--begin::Modal-->
+						<!-- <div class="modal fade" id="m_modal_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                      </div>
+                      <div class="modal-footer">
+                          
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+                <div class="modal fade" id="create_contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create a new Contact</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form class="m-form m-form--label-align-left- m-form--state-" id="create_contact_form" name="create_contact_form" [formGroup]="createContactForm"
+              (ngSubmit)="createContact()">
+              <div class="modal-body">
+                <div>
+                  <label class="form-control-label">This contact is a:</label>
+                  <div class="m-radio-inline">
+                    <label class="m-radio m-radio--solid m-radio--brand">
+                      <input type="radio" formControlName="contact_type" name="contact_type" id="person" value="person"
+                        [(ngModel)]="contact_type"> Person
+                        <span></span>
+                    </label>
+                    <label class="m-radio m-radio--solid m-radio--brand">
+                      <input type="radio" formControlName="contact_type" name="contact_type" id="company"
+                        value="company" [(ngModel)]="contact_type"> Company
+                      <span></span>
+                    </label>
+                  </div>
+
+                </div>
+                <div>
+                    <div class="m-separator m-separator--dashed m-separator--sm"></div>
+                    <div class="m-form__heading">
+                  <h3 class="m-form__heading-title"> Contact Information</h3>
+                </div>
+                  <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input formControlName="full_name" class="form-control form-control-sm" type="text" id="full_name" name="full_name"
+                      value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('full_name').invalid && createContactForm.get('full_name').touched }" />
+                    <div *ngIf="submitted || full_name.invalid && full_name.touched">
+                      <span class="text-danger form-control-feedback" *ngIf="full_name.errors?.required">This field is
+                        required.</span>
+                      <!-- <div class="text-danger form-control-feedback" *ngIf="email.errors?.email">Email must be a valid email address</div> -->
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input formControlName="email" class="form-control form-control-sm" type="text" id="email" name="email" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('email').invalid && createContactForm.get('email').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('email').invalid && createContactForm.get('email').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('email').errors?.required">This field is required.</span>
+                      <!-- <div class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('email').errors?.email">Email must be a valid email address</div> -->
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="primary_phone">Primary Phone</label>
+                    <input formControlName="primary_phone" class="form-control form-control-sm" type="text" id="primary_phone"
+                      name="primary_phone" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('primary_phone').invalid && createContactForm.get('primary_phone').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('primary_phone').invalid && createContactForm.get('primary_phone').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('primary_phone').errors?.required">This field is required.</span>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <label for="alternate_phone">Alternate Phone</label>
+                    <input formControlName="alternate_phone" class="form-control form-control-sm" type="text" id="alternate_phone"
+                      name="alternate_phone" value="" />
+                  </div>
+                  <div class="form-group">
+                    <label for="mobile">Mobile Phone</label>
+                    <input formControlName="mobile" class="form-control form-control-sm" type="text" id="mobile" name="mobile" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('mobile').invalid && createContactForm.get('mobile').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('mobile').invalid && createContactForm.get('mobile').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('mobile').errors?.required">This field is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fax">Fax</label>
+                    <input formControlName="fax" class="form-control form-control-sm" type="text" id="fax" name="fax" value="" />
+                  </div>
+                </div>
+                <div>
+                  Service Address
+                  <div class="form-group">
+                    <label for="address_1">Address 1</label>
+                    <input formControlName="service_address_1" class="form-control form-control-sm" type="text" id="address_1"
+                      name="service_address_1" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('service_address_1').invalid && createContactForm.get('service_address_1').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('service_address_1').invalid && createContactForm.get('service_address_1').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('service_address_1').errors?.required">This field is
+                        required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="address_2">Address 2</label>
+                    <input formControlName="service_address_2" class="form-control form-control-sm" type="text" id="address_2"
+                      name="service_address_2" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('service_address_2').invalid && createContactForm.get('service_address_2').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('service_address_2').invalid && createContactForm.get('service_address_2').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('service_address_2').errors?.required">This field is
+                        required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <input formControlName="service_city" class="form-control form-control-sm" type="text" id="city" name="service_city"
+                      value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('service_city').invalid && createContactForm.get('service_city').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('service_city').invalid && createContactForm.get('service_city').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('service_city').errors?.required">This field is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="state">State</label>
+                    <input formControlName="service_state" class="form-control form-control-sm" type="text" id="state"
+                      name="service_state" value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('service_city').invalid && createContactForm.get('service_city').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('service_state').invalid && createContactForm.get('service_state').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('service_state').errors?.required">This field is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="zip">Zip</label>
+                    <input formControlName="service_zip" class="form-control form-control-sm" type="text" id="zip" name="service_zip"
+                      value=""
+                      [ngClass]="{ 'is-invalid': submitted && createContactForm.get('service_zip').invalid && createContactForm.get('service_zip').touched }" />
+                    <div
+                      *ngIf="submitted || createContactForm.get('service_zip').invalid && createContactForm.get('service_zip').touched">
+                      <span class="text-danger form-control-feedback"
+                        *ngIf="createContactForm.get('service_zip').errors?.required">This field is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="country">Country</label>
+                    <input formControlName="service_country" class="form-control form-control-sm" type="text" id="country"
+                      name="service_country" value="" />
+                  </div>
+                </div>
+
+                <div>
+                   <div>
+                    <label class="form-control-label">Billing Address:</label>
+                    <div class="m-radio-inline">
+                      <label class="m-radio m-radio--solid m-radio--brand">
+                        <input formControlName="same_as_above" class="" type="radio" name="same_as_above" id="yes"
+                        value="yes" (change)="onChanges($event)" [(ngModel)]="same_as_above"> Bill the service address above
+                          <span></span>
+                      </label>
+                      <label class="m-radio m-radio--solid m-radio--brand">
+                        <input class="" type="radio" formControlName="same_as_above" name="same_as_above" id="no" value="no"
+                        (change)="onChanges($event)" [(ngModel)]="same_as_above"> Bill a different address
+                        <span></span>
+                      </label>
+                    </div>
+  
+                  </div>
+
+                  
+
+
+
+
+
+
+                  <div id="billing_address" class="pt-2" *ngIf="same_as_above_result">
+                    <div class="form-group">
+                      <label for="address_1">Address 1</label>
+                      <input formControlName="billing_address_1" class="form-control form-control-sm" type="text" id="address_1"
+                        name="billing_address_1" value="" />
+                    </div>
+                    <div class="form-group">
+                      <label for="address_2">Address 2</label>
+                      <input class="form-control form-control-sm" type="text" id="address_2" formControlName="billing_address_2"
+                        name="billing_address_2" value=""
+                        [ngClass]="{ 'is-invalid': submitted && createContactForm.get('billing_address_2').invalid && createContactForm.get('billing_address_2').touched }" />
+                      <div
+                        *ngIf="submitted || createContactForm.get('billing_address_2').invalid && createContactForm.get('billing_address_2').touched">
+                        <span class="text-danger form-control-feedback"
+                          *ngIf="createContactForm.get('billing_address_2').errors?.required">This field is
+                          required.</span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="city">City</label>
+                      <input class="form-control form-control-sm " type="text" id="city" formControlName="billing_city"
+                        name="billing_city" value="" />
+                    </div>
+                    <div class="form-group">
+                      <label for="state">State</label>
+                      <input class="form-control form-control-sm" type="text" id="state" name="billing_state"
+                        formControlName="billing_state" value="" />
+                    </div>
+                    <div class="form-group">
+                      <label for="zip">Zip</label>
+                      <input class="form-control form-control-sm" type="text" id="zip" formControlName="billing_zip" name="billing_zip"
+                        value="" />
+                    </div>
+                    <div class="form-group">
+                      <label for="country">Country</label>
+                      <input class="form-control form-control-sm" type="text" id="country" formControlName="billing_country"
+                        name="billing_country" value="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+          <!--end::Modal-->
+      </div>
+
+      <!--end::Portlet-->
+</div>

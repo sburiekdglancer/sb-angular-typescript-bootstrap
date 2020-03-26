@@ -1,0 +1,777 @@
+
+<div class="m-content">
+    <!--begin::Portlet-->
+    <div class="m-portlet">
+      <div class="m-portlet__body">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="media">
+              <div class="media-body">
+                <h3>
+                    {{ContactResponseData.service_address.address_1}}
+                    <small>
+                    #6453
+                    <span
+                      class="tooltipped-bottom"
+                      title=""
+                      data-original-title="Synced with QuickBooks"
+                    >
+                      <i
+                        class="fa fa-fw fa-qb fa-quickbooks text-muted"
+                      ></i>
+                    </span>
+                  </small>
+                </h3>
+                <p class="text-muted">
+                  Service Location of
+                  <a class="parent-customer-title" href=""
+                    >{{ ContactResponseData.data.name}}</a
+                  >
+                </p>
+                <div class="row customer-summary">
+                  <div class="col-md-6 col-lg-4">
+                    <div
+                      class="ellipsis-media customer-contact-info customer-main-email"
+                    >
+                      <div class="media-left">
+                        <i
+                          class="fa fa-envelope fa-fw text-muted media-object"
+                        ></i>
+                      </div>
+                      <div class="media-body">
+                          <a
+                          title="{{ ContactResponseData.data.email}}"
+                          href="mailto:{{ ContactResponseData.data.email}}"
+                          >{{ ContactResponseData.data.email}}</a
+                        >
+                      </div>
+                    </div>
+
+                    <div
+                      class="media customer-contact-info customer-main-phone"
+                    >
+                    <div class="media-body">
+                        <a href="tel:800-484-0038">{{ ContactResponseData.data.primary_phone != "" ? ContactResponseData.data.primary_phone : ContactResponseData.data.alternate_phone != "" ? ContactResponseData.data.alternate_phone : ContactResponseData.data.mobile  }}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-8">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="media customer-address">
+                          <div class="media-body">
+                            <strong>Service Address</strong>
+                            <address
+                              class="customer-address customer-service-address"
+                            >
+                            <div class="customer-service-address_1">
+                                {{ContactResponseData.service_address.address_1}}
+                          </div>
+                              <div
+                                class="customer-service-address_2"
+                              ></div>
+                              <span class="customer-service-city"
+                                >{{ContactResponseData.service_address.address_2}} </span
+                              >
+                              <span class="customer-service-state"
+                                >{{ContactResponseData.service_address.city}} {{ContactResponseData.service_address.state}} </span
+                              >
+                              <span class="customer-service-zip_code"
+                                >{{ContactResponseData.service_address.zip}} </span
+                              >
+                              <span class="customer-service-country"
+                                >{{ContactResponseData.service_address.country}}</span
+                              >
+                            </address>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="media customer-address">
+                          <div class="media-body">
+                            <strong>Billing Address</strong>
+                            <div class="contact-billing-address">
+                                {{ContactResponseData.data.name}}
+                                <br />
+                              <address
+                                class="customer-address customer-billing-address"
+                              >
+                                <div class="customer-billing-address_1">
+                                    {{ContactResponseData.billing_address.address_1}}
+                                </div>
+                                <div
+                                  class="customer-billing-address_2"
+                                ></div>
+                                <span class="customer-billing-city"
+                                  >{{ContactResponseData.service_address.city}} </span
+                                ><span class="customer-billing-state"
+                                  >{{ContactResponseData.service_address.state}} </span
+                                ><span class="customer-billing-zip_code"
+                                  >{{ContactResponseData.service_address.zip}} </span
+                                ><span
+                                  class="customer-billing-country"
+                                ></span>
+                              </address>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="row primary-contact-summary">
+                  <div class="col-md-6 col-lg-4">
+                    <div
+                      class="media customer-contact-info customer-primary-contact"
+                    >
+                      <div class="media-body">
+                        <strong>Primary Contact</strong>
+                        <br />
+                        Maria Carmina Salud
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-8">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div
+                          class="ellipsis-media customer-contact-info customer-main-email"
+                        >
+                        <div class="media-body">
+                            <span title="{{ ContactResponseData.data.email}}"
+                              ><a href="mailto:{{ ContactResponseData.data.email}}"
+                                >{{ ContactResponseData.data.email}}</a
+                              ></span
+                            >
+                            <small class="text-muted"> </small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div
+                          class="media customer-contact-info customer-main-phone"
+                        >
+                          <div class="media-body">
+                              <span
+                              ><a href="tel: {{ ContactResponseData.data.primary_phone != '' ? ContactResponseData.data.primary_phone : ContactResponseData.data.alternate_phone != '' ? ContactResponseData.data.alternate_phone : ContactResponseData.data.mobile  }}"
+                                >{{ ContactResponseData.data.primary_phone != "" ? ContactResponseData.data.primary_phone : ContactResponseData.data.alternate_phone != "" ? ContactResponseData.data.alternate_phone : ContactResponseData.data.mobile  }}</a
+                              ></span
+                            >
+                            <small class="text-muted"> </small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3 hidden-xs">
+            <div
+              data-react-class="CustomerSnapshot"
+              data-react-props='{"customerNumber":6453,"showQuickbooks":true,"showXero":false}'
+            >
+              <div class="well well-xs customer-snapshot">
+                <div class="list-group">
+                  <div class="list-group-item">
+                    <span class="snapshot-value m--pull-right"
+                      >$0.00</span
+                    >Opps
+                  </div>
+                  <div class="list-group-item">
+                    <span class="snapshot-value m--pull-right"
+                      >$0.00</span
+                    >Jobs
+                  </div>
+                  <div class="list-group-item">
+                    <span class="snapshot-value m--pull-right"
+                      >$0.00</span
+                    >Balance
+                  </div>
+                  <div class="list-group-item">
+                    <span class="snapshot-value m--pull-right"
+                      >$0.00</span
+                    >QuickBooks
+                  </div>
+                  <div class="list-group-item">
+                    <span class="snapshot-value m--pull-right"
+                      >$499.00</span
+                    >Payments
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-portlet__foot">
+        <div class="row align-items-center">
+          <div class="col-lg-6 m--valign-middle">
+            <button
+              type="submit"
+              class="btn btn-outline-primary m-btn m-btn--custom btn-sm"
+            >
+              Add tags
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end::Portlet-->
+
+    <!--begin::Portlet-->
+    <div class="m-portlet">
+      <div class="m-portlet__body">
+        <ul
+          class="nav nav-tabs  m-tabs-line m-tabs-line--success"
+          role="tablist"
+        >
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link active"
+              data-toggle="tab"
+              href="#m_tabs_2_1"
+              role="tab"
+            >
+              Overview
+            </a>
+          </li>
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link "
+              data-toggle="tab"
+              href="#m_tabs_2_2"
+              role="tab"
+            >
+              Locations / Contacts
+            </a>
+          </li>
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link "
+              data-toggle="tab"
+              href="#m_tabs_2_3"
+              role="tab"
+            >
+              Oops
+            </a>
+          </li>
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link "
+              data-toggle="tab"
+              href="#m_tabs_2_4"
+              role="tab"
+            >
+              Jobs
+            </a>
+          </li>
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link "
+              data-toggle="tab"
+              href="#m_tabs_2_5"
+              role="tab"
+            >
+              Invoices
+            </a>
+          </li>
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link "
+              data-toggle="tab"
+              href="#m_tabs_2_6"
+              role="tab"
+            >
+              Notes
+            </a>
+          </li>
+          <li class="nav-item m-tabs__item">
+            <a
+              class="nav-link m-tabs__link "
+              data-toggle="tab"
+              href="#m_tabs_2_7"
+              role="tab"
+            >
+              Reminders
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="m_tabs_2_1" role="tabpanel">
+            <!--begin::Portlet-->
+            <div class="row">
+              <div class="col-xl-6">
+                <!--begin::Portlet-->
+                <div
+                  class="m-portlet m-portlet--head-sm m-portlet--rounded m-portlet--unair m-portlet--bordered "
+                >
+                  <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                      <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                          Additional Information
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-portlet__body p-0">
+                    <table class="table mb-0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="m--font-bolder">Source</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="m--font-bolder">Tax</span>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="m--font-bolder"
+                              >First Name</span
+                            >
+                          </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!--end::Portlet-->
+                <!--begin::Portlet-->
+                <div
+                  class="m-portlet m-portlet--head-sm m-portlet--rounded m-portlet--unair m-portlet--bordered "
+                >
+                  <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                      <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                          Customer Center
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-portlet__body ">
+                    <div class="form-group m-form__group">
+                      <label for="">
+                        1002 State Route 33 can login at:
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control m-input"
+                        id=""
+                        value="https://app.kickserv.com/ercenvironmental/self_service/jobs?token=BvcTLQ_11S7u03enVpUd9bimhSXamxjdHc5idK1cAJQ"
+                      />
+                    </div>
+                    <button type="reset" class="btn btn-primary btn-sm">
+                      Email this to 1002 State Route 33
+                    </button>
+                  </div>
+                </div>
+                <!--end::Portlet-->
+              </div>
+              <div class="col-xl-6">
+                <!--begin::Portlet-->
+                <div
+                  class="m-portlet m-portlet--head-sm m-portlet--rounded m-portlet--unair m-portlet--bordered "
+                >
+                  <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                      <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                          QuickBooks
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-portlet__body p-0">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">Last Updated</div>
+                        2019-08-01 05:56:08 -0400
+                      </li>
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">Credit Limit</div>
+                        n/a
+                      </li>
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">Terms</div>
+                        n/a
+                      </li>
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">
+                          Preferred Payment Amount
+                        </div>
+                        n/a
+                      </li>
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">
+                          Preferred Delivery Amount
+                        </div>
+                        n/a
+                      </li>
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">Price Level</div>
+                        n/a
+                      </li>
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">
+                          Sales Rep Assigned to Account
+                        </div>
+                        n/a
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--end::Portlet-->
+              </div>
+            </div>
+            <div
+              class="m-portlet m-portlet--head-sm m-portlet--rounded m-portlet--unair m-portlet--bordered "
+            >
+              <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                  <div class="m-portlet__head-title">
+                    <h3 class="m-portlet__head-text">
+                      Contact History
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              <div class="m-portlet__body p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    05/20/19 2:23 PM
+                    <div>
+                      <span class="m--font-bolder">Hugh Tat </span>
+                      updated total balance, balance.. for 1002 State
+                      Route 33
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    05/13/19 3:00 PM
+                    <div>
+                      <span class="m--font-bolder">Hugh Tat </span>
+                      updated total balance, balance.. for 1002 State
+                      Route 33
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    04/30/19 6:36 PM
+                    <div>
+                      <span class="m--font-bolder">Hugh Tat </span>
+                      updated total balance, balance.. for 1002 State
+                      Route 33
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--end::Portlet-->
+          </div>
+          <div class="tab-pane " id="m_tabs_2_2" role="tabpanel">
+            <div class="row">
+              <div class="col-xl-6">
+                <!--begin::Portlet-->
+                <div
+                  class="m-portlet m-portlet--head-sm m-portlet--rounded m-portlet--unair m-portlet--bordered "
+                >
+                  <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                      <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                          Service Locations
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-portlet__body ">
+                    <div class="form-group m-form__group">
+                      <label for="">
+                        Search for Locations
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control m-input"
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!--end::Portlet-->
+              </div>
+              <div class="col-xl-6">
+                <!--begin::Portlet-->
+                <div
+                  class="m-portlet m-portlet--head-sm m-portlet--rounded m-portlet--unair m-portlet--bordered "
+                >
+                  <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                      <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                          Additional Contacts
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="m-portlet__body p-0">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div class="m--font-bolder">
+                          Maria Carmina Salud
+                          <span
+                            class="m-badge m-badge--success m-badge--wide"
+                          >
+                            Primary
+                          </span>
+                        </div>
+                        <div>
+                          <a href="" class="pull-right">
+                            robert@atbnj.com
+                          </a>
+                          <a href="">800-484-0038</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--end::Portlet-->
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane " id="m_tabs_2_3" role="tabpanel">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--rounded m-portlet--unair">
+              <div class="m-portlet__body p-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="btn-group" role="group">
+                      <button
+                        id="btnGroupDrop1"
+                        type="button"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Filter by status
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="btnGroupDrop1"
+                        x-placement="bottom-start"
+                      >
+                        <a class="dropdown-item" href="#">
+                          All Status
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          New
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search by service or description"
+                  />
+                </div>
+                <table class="table m-0 mt-4">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Opportunity</th>
+                      <th>Assigned to</th>
+                      <th>Created</th>
+                      <th>Scheduled</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="6">
+                        <div class="p-2 text-center">
+                          No Opportunities
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!--end::Portlet-->
+          </div>
+          <div class="tab-pane " id="m_tabs_2_4" role="tabpanel">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--rounded m-portlet--unair">
+              <div class="m-portlet__body p-0">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="btn-group" role="group">
+                      <button
+                        id="btnGroupDrop1"
+                        type="button"
+                        class="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Filter by status
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="btnGroupDrop1"
+                        x-placement="bottom-start"
+                      >
+                        <a class="dropdown-item" href="#">
+                          All Status
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          New
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search by service or description"
+                  />
+                </div>
+                <table class="table m-0 mt-4">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Job</th>
+                      <th>Technician(s)</th>
+                      <th>Created</th>
+                      <th>Starts on</th>
+                      <th>Completed</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>6985</td>
+                      <td>
+                        <strong> <a href="">Tank Removal </a></strong>
+                        <div>
+                          <span
+                            class="m-badge m-badge--success m-badge--wide"
+                            >Paid</span
+                          >
+                        </div>
+                        <div>
+                          <p>
+                            ERC feels the 4x4 object discovered in the
+                            tank search (done by others) could very
+                            likely be a...
+                          </p>
+                        </div>
+                      </td>
+                      <td>Ryan Kiritsis, Jimmy Lodema</td>
+                      <td nowrap>
+                        <span>Apr 30 2019</span>
+                      </td>
+                      <td nowrap>
+                        <span>Apr 30 2019</span>
+                      </td>
+                      <td>
+                        $499.00
+                      </td>
+                      <td>
+                        $0.00
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!--end::Portlet-->
+          </div>
+          <div class="tab-pane " id="m_tabs_2_5" role="tabpanel">
+            <!--begin::Portlet-->
+            <div
+              class="m-portlet m-portlet--bordered m-portlet--rounded m-portlet--unair"
+            >
+              <div class="m-portlet__body p-0">
+                <table class="table m-0">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Invoice</th>
+                      <th>Date</th>
+                      <th>&nbsp;</th>
+                      <th>&nbsp;</th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>6985</td>
+                      <td>
+                        <strong> <a href="">Tank Removal </a></strong>
+
+                        <div>
+                          <span
+                            class="m-badge m-badge--success m-badge--wide"
+                            >Paid</span
+                          >
+                        </div>
+                        <div>
+                          <p>
+                            ERC feels the 4x4 object discovered in the
+                            tank search (done by others) could very
+                            likely be a...
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <span>Apr 30 2019</span>
+                      </td>
+                      <td>
+                        <i class="fa fa-envelope fa-fw text-sent"></i>
+                        <i
+                          class="fa fa-fw text-not-viewed text-not-viewed fa-eye-slash"
+                        ></i>
+                      </td>
+                      <td
+                        class="text-right listing-table-currency no-break"
+                      >
+                        $499.00
+                      </td>
+                      <td
+                        class="text-right listing-table-currency no-break"
+                      >
+                        $0.00
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!--end::Portlet-->
+          </div>
+          <div class="tab-pane " id="m_tabs_2_6" role="tabpanel">
+            <!--begin::Portlet-->
+            <!--end::Portlet-->
+          </div>
+          <div class="tab-pane " id="m_tabs_2_7" role="tabpanel">
+            <!--begin::Portlet-->
+            <!--end::Portlet-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end::Portlet-->
+</div>

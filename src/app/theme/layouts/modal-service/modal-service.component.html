@@ -1,0 +1,74 @@
+<div class="container">
+  <!-- Trigger the modal with a button -->
+  <div class="text-right">
+	<a class="" data-toggle="modal"  (click)="serviceModalClick()" style="cursor: pointer">+ Add new service</a>
+  </div>
+	<!-- Modal -->
+	<div class="modal modalServices fade" id="myModal3" role="dialog">
+	  <div class="modal-dialog">
+	  
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+			<h4 class="modal-title">Add Service</h4>
+		  </div>
+		  <form id="create_service_form" name="create_service_form" [formGroup] = "createServiceForm" (ngSubmit)="createService()">
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input  formControlName="name" class="form-control" type="text" id="name" name="name" value=""
+                            [ngClass]="{ 'is-invalid': submitted && createServiceForm.get('name').invalid && createServiceForm.get('name').touched }" />
+                      <div *ngIf="submitted || createServiceForm.get('name').invalid && createServiceForm.get('name').touched">
+                        <span class="text-danger form-control-feedback" *ngIf="createServiceForm.get('name').errors?.required">This field is
+                          required.</span>
+                        <!-- <div class="text-danger form-control-feedback" *ngIf="email.errors?.email">Email must be a valid email address</div> -->
+                      </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="scope">Description</label>
+                              <textarea formControlName="scope" class="form-control" ></textarea>
+                              <!-- <input formControlName="scope" class="form-control" type="text" id="scope" name="scope" value="" /> -->
+                              <!-- <div class="">
+                                      <div class="summernote form-control" type="text" id="scope" name="scope" value="" ></div>
+                              </div> -->
+                              <!-- <div *ngIf="textAreaError">
+                                <span>This field is required.</span>
+                              </div> -->
+                          </div>
+                          <div class="form-group">
+                              <label for="price">Price</label>
+                              <input formControlName="price" class="form-control" type="text" id="price" name="price" value="" 
+                              [ngClass]="{ 'is-invalid': submitted && createServiceForm.get('price').invalid && createServiceForm.get('price').touched }" />
+                              <div *ngIf="submitted || createServiceForm.get('price').invalid && createServiceForm.get('price').touched">
+                                <span class="text-danger form-control-feedback" *ngIf="createServiceForm.get('price').errors?.required">This field is
+                                  required.</span>
+                                  <span *ngIf="createServiceForm.get('price').errors?.pattern" class="text-danger">Number Only</span>
+                                <!-- <div class="text-danger form-control-feedback" *ngIf="email.errors?.email">Email must be a valid email address</div> -->
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="tax">Tax</label>
+                              <input formControlName="tax" class="form-control" type="text" id="tax" name="tax" value="" 
+                              [ngClass]="{ 'is-invalid': submitted && createServiceForm.get('tax').invalid && createServiceForm.get('tax').touched }" />
+                              <div *ngIf="submitted || createServiceForm.get('tax').invalid && createServiceForm.get('tax').touched">
+                                <span class="text-danger form-control-feedback" *ngIf="createServiceForm.get('tax').errors?.required">This field is
+                                  required.</span>
+                                  <span *ngIf="createServiceForm.get('tax').errors?.pattern" class="text-danger">Number Only</span>
+                                  <!-- <span *ngIf="createServiceForm.get('tax').errors?.maxLength" class="text-danger">maximum 3 character</span> -->
+                              </div>
+                          </div>
+                      </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" (click)="serviceModalClose()">Close</button>
+		  </div>
+		</div>
+		
+	  </div>
+	</div>
+	
+  </div>
